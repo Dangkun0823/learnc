@@ -3,35 +3,22 @@
 #include<stdlib.h>
 #include<math.h>
 #include<windows.h>
-int main(){
-	//int i, j, m, n;
-	//for (i = 1; i <= 7; i++){
-	//	for (j = 1; j <= 2*i-1; j++){
-	//		printf("*");
-	//	}
-	//	printf("\n");
-	//}
-	//for (m = 1; m <= 6; m++){
-	//	for (n = 11; n >=2*m-1 ; n--){
-	//		printf("*");
-	//	}
-	//	printf("\n");
-	//}
-	/*int i, j, k, n;
-	for (i = 1; i < 10; i++){
-		for (j = 0; j < 10; j++){
-			for (k = 0; k < 10; k++){
-				int n = 100 * i + 10 * j + k;
-				if (i*i*i + j*j*j + k*k*k == n){
-					printf("%d ", n);
-				}
-			}
-		}
-	}*/
-	int a = 0;
-	scanf("%d", &a);
-	int num = a + (10 * a + a) + (100 * a + 10 * a + a) + (1000 * a + 100 * a + 10 * a + a);
-	printf("%d", num);
+long count = 0;
+void hanoi(int n, char a, char b, char c){
+	if (1 == n){
+		printf("第%d次，%c塔-->%c塔", ++count，a, c);
+	}
+	else{
+		hanoi(n - 1, a, c, b);
+		printf("第%c次,%c塔-->%c塔"，++count，a, c)；
+			hanoi(n - 1, b, a, c);
+	}
+}
+int main(void){
+	int h;
+	printf("输入汉诺塔圆盘数量：");
+	scanf("%d", &h);
+	hanoi(h, 'A', 'B', 'C');
 	system("pause");
 	return 0;
 }
